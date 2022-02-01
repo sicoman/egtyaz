@@ -1,0 +1,1 @@
+Hello {{ $owner['name'] }} , Your Unit Must have 5 Images at least .

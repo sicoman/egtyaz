@@ -1,0 +1,1 @@
+<p>Hello <strong>{{$user->name}}</strong> Your Code is <strong>{{ $code }}</strong></p>

@@ -1,0 +1,1841 @@
+@media (max-width: 1772px)
+{
+	
+	.footer .listFooter
+	{
+		display:none;
+	}
+
+	.minHeight600
+	{
+		padding-left:50px;
+		padding-right:50px;
+	}
+	
+	.vids
+	{
+		padding-right:150px;
+	}
+		
+	.profile .profileStyle .Bouquet .btns
+	{
+		margin-top:0;
+		float:none;
+	}
+	
+	.selectQues .titleSelect
+	{
+		margin-bottom:30px;
+		width:100%;
+	}
+	
+	.competitions .selectQues
+	{
+		margin-top:0;
+	}
+	
+	.competitions .itemComp .footerItem li:first-of-type
+	{
+		margin-left:0;
+	}
+	
+	.competitions .itemComp .footerItem li
+	{
+		text-align:right;
+		display:block
+	}
+	
+	
+	.materialAcc .content .checkList li
+	{
+		min-width:auto;
+	}
+	
+	.materialAcc .content .checkList li:not(:last-of-type)
+	{
+		margin-left:15px;
+	}
+	
+	.materialAcc .content .checkItem,
+	.materialAcc .content .titleCount
+	{
+		font-size:14px;
+	}
+	
+	.materialAcc .content .titleCount
+	{
+		margin-top:5px;
+	}
+	
+	.materialAcc .content .Count
+	{
+		width:125px;
+	}
+
+	.selectPilot .item .addSelect
+	{
+		font-size:40px
+	}
+	
+	.pilotDetails .tableQues .head th
+	{
+		padding-left:20px;
+		padding-right:20px;
+		font-size:23px
+	}
+	
+}
+
+
+
+@media (max-width: 1446px)
+{
+	
+	.footer .listFooter,
+	.footer .copyFooter
+	{
+		float:none;
+		margin-left:0;
+		margin-top:0;
+		margin-bottom:15px;
+		display:none;
+		
+	}
+	
+	.footer .listImgs
+	{
+		float:none;
+		margin-top:0;
+		display:block;
+		margin-right:-5px
+	}
+	
+	.topTen .owl-theme .owl-nav .owl-prev,
+	.topTen .owl-theme .owl-nav .owl-next
+	{
+		right:-50px;
+	}
+	
+	.topTen .owl-theme .owl-nav .owl-next
+	{
+		left:-50px;
+		right:auto
+	}
+	
+	.profile .profileStyle .profileForm
+	{
+		padding:0
+	}
+	
+	.question .headQues .numbOfQ,
+	.question .headQues .titleHead
+	{
+		float:none;
+		display:block;
+	}
+	
+	.question .headQues .numbOfQ
+	{
+		margin-bottom:20px;
+	}
+	
+	.headProfile .time
+	{
+		font-size:22px;
+	}
+	
+	.headProfile .time span
+	{
+		font-size:25px;
+	}
+	
+	.randomQues .selectQues
+	{
+		margin-top:0;
+	}
+	
+	.randomQues  .selectQues .titleSelect
+	{
+		margin-left:0;
+		width:100%;
+		font-size:16px;
+		color:#36415B;
+		margin-bottom:35px;
+	}
+	
+	.materialAcc .content .checkList li
+	{
+		float:none;
+	}
+	
+	.materialAcc .content .checkList li:not(:last-of-type)
+	{
+		margin-left:0;
+		margin-bottom:20px;
+	}
+	
+	.rewards .shareStyle .listShare
+	{
+		float:right;
+		width:100%;
+		margin-top:15px;
+	}
+	
+	.rewards .shareStyle .listShare li
+	{
+		float:right;
+		margin-bottom:15px;
+	}
+	
+	.rewards .shareStyle .listShare li:not(:last-of-type)
+	{
+		margin-right:0;
+		margin-left:15px;
+	}
+	
+	.reward2 .sectionRight
+	{
+		max-width:480px;
+	}
+	
+	.reward2 .sectionLeft
+	{
+		width:190px;
+	}
+	
+	.reward2 .sectionLeft .subTitle
+	{
+		font-size:14px;
+	}
+
+	.reward2 .sectionLeft .price
+	{
+		font-size:80px;
+	}
+	
+	.askTeacher .askDiv .details .btnASk
+	{
+		left: 65px;
+    	top: 19px;
+	}
+	
+	.pilotDetails .tableQues tbody tr td:first-of-type {
+	    max-width: 228px;
+	}
+
+}
+
+@media (min-width:1200px) and (max-width: 1446px)
+{
+
+}	
+
+
+/*Big Size Screens*/
+@media (max-width: 1200px)
+{
+	
+	.detailsHome .vidDiv .details .desc
+	{
+	    line-height: 25px;
+   	 	margin-bottom: 15px;
+ 	    font-size: 16px;
+	}
+
+	.overflowH
+	{
+		overflow:hidden
+	}
+	
+	.topTen .owl-theme .owl-nav .owl-prev
+	{
+		right:0
+	}
+	
+	.topTen .owl-theme .owl-nav .owl-next
+	{
+		left:0;
+	}
+	
+	.minHeight600
+	{
+		padding-left:30px;
+		padding-right:30px;
+	}
+	
+	.vids
+	{
+		padding-right:110px;
+	}
+	
+	.cpanelStyle
+	{
+		padding-bottom:0;
+		padding-right:75px;
+	}
+	
+	.cpanelStyle.activeMenu
+	{
+		padding-right:0;
+    	-webkit-transform: translateX(-221px);
+    	transform: translateX(-221px);
+	}
+	
+	.cpanelStyle .bgOpacity
+	{
+		content:"";
+		width:100%;
+		height:100%;
+		position: absolute;
+		top:0;
+		right:0;
+		z-index: 9999;
+		background-color: #00000012;
+		visibility: hidden;
+		opacity: 0;
+		cursor: pointer
+	}
+	
+	.cpanelStyle.activeMenu .bgOpacity
+	{
+		opacity: 1;
+		visibility:visible
+	}
+
+	.menuCpanel .linksCpanel 
+	{
+	    height: calc(100vh - 65px);
+	}
+	
+	
+	.cpanelStyle.activeMenu .footer,
+	.cpanelStyle .footer
+	{
+		padding-right:0
+	}
+	
+	.cpanelStyle .footer
+	{
+		position: static;
+		text-align:center;
+		padding-right:30px;
+	}
+	
+	
+	.cpanelStyle .footer .sectionLeft,
+	.cpanelStyle .footer .sectionRight,
+	.footer .listFooter li,
+	.footer .listImgs li,
+	.footer .copyrights,
+	.footer .socialFooter
+	{
+		float:none;
+		
+	}
+	
+	.footer .socialFooter
+	{
+		margin-right:0;
+		margin-bottom:10px;
+	}
+	
+	.footer .socialFooter li
+	{
+		float:none;
+		display:inline-block
+	}
+	
+	.footer .socialFooter li:not(:last-of-type)
+	{
+		margin-right:0;
+		margin-left:15px;
+	}
+
+	.cpanelStyle .footer .listFooter,
+	.footer .copyFooter
+	{
+		display:block;
+	}
+	
+	.footer .copyFooter
+	{
+		margin-left:0;
+		margin-bottom:15px;
+	}
+	
+	
+	.cpanelStyle .footer .listImgs
+	{
+		margin-bottom:15px;
+	}
+	
+	.cpanelStyle .footer .listImgs li,
+	.cpanelStyle .footer .listFooter li
+	{
+		display:inline-block;
+		margin-bottom:10px;
+	}
+	
+	.courseStyle .courseItem .details .desc
+	{
+	    line-height: 31px;
+	    font-size:17px;
+	}
+	
+	.paymentStyle .courseItem img
+	{
+		height:auto
+	}
+	
+	.paymentStyle .courseItem .details
+	{
+		padding-bottom:55px;
+	}
+	
+	.courseStyle .payment
+	{
+		padding-bottom:30px;
+	}
+	
+	.cpanelStyle.activeMenu .messageCopy
+	{
+		right:0;
+		width:100%
+	}
+	
+	.Subscriptions .plans .plan .planHead
+	{
+	    padding: 20px 17px;
+	}
+	
+	.Subscriptions .plans .plan .planHead .subTitle
+	{
+		font-size:15px;
+	}
+	
+	.Subscriptions .plans .plan .listPlan li
+	{
+		font-size:14px;
+	}
+	
+	.services .item
+	{
+		padding-top:150px;
+	}
+	
+	
+	.services .item svg
+	{
+		width:100%;
+	}
+	
+	.services .item img 
+	{
+	    top: -70px;
+	    right: calc(50% - 57px);
+	    width: 138px;
+	}
+	
+	.services .item img.img3
+	{
+		right:calc(50% - 77px)
+	}
+
+	.selectPilot .item .selectList li span
+	{
+		font-size:16px;
+	}
+	
+}
+
+
+
+
+
+/* small Screens & tablets & Smart phone */
+@media (max-width: 991px) 
+{
+	.transformPage.active,
+	.transform {
+	    -webkit-transform: translateX(0);
+	    transform: translateX(0);
+	}
+	
+	.header
+	{
+		padding
+	}
+	
+	.header .menuHome a
+	{
+		display:none;
+	}
+	
+	.header .iconMenu
+	{
+		display:block
+	}
+	
+	.header .logo
+	{
+		width:160px;
+		margin-bottom:10px;
+	}
+	
+	.heightHeader
+	{
+		height:115px;
+	}
+
+	
+	.detailsHome .areYouStudent .details a
+	{
+		position: static;
+		display:block;
+		margin-top:15px;
+	}
+	
+	.detailsHome .vidDiv .details
+	{
+		text-align:center
+	}
+	
+	.detailsHome .vidDiv .details .desc,
+	.detailsHome .vidDiv .details a
+	{
+		margin:0 auto 15px
+	}
+	
+	.counts .item
+	{
+		position: relative
+	}
+	
+	.counts .item:before
+	{
+		content:"";
+		height:1px;
+		bottom:0;
+		width:80%;
+		max-width:100%;
+		position: absolute;
+		bottom:0;
+		left:calc(50% - 40%);
+		background-color:#eee
+	}
+	
+	.footer 
+	{
+		text-align:center
+	}
+	
+	.footer .sectionLeft,
+	.footer .sectionRight
+	{
+		float:none;
+	}
+	
+	.footer .listFooter,
+	.footer .socialFooter,
+	.footer .listImgs
+	{
+		display:inline-block;
+	}
+	
+	.footer .listImgs
+	{
+		margin-bottom:15px;
+	}
+	
+	.footer .listImgs li,
+	.footer .listFooter li
+	{
+		display:inline-block;
+		margin-bottom:10px;
+		float:none;
+	}
+	
+	.Breadcrumb
+	{
+		padding:27px 0
+	}
+	
+	.askTeacher .sendAsk
+	{
+		padding:30px
+	}
+	
+	.selectStyle,
+	.inputStyle,
+	.selectMaterial
+	{
+		margin-bottom:20px
+	}
+	
+	.formSing
+	{
+		padding:30px;
+	}
+	
+	.profile .profileStyle .Bouquet .btns .btnBouquet
+	{
+		float:none;
+		display:inline-block
+	}
+	
+	.competitions .itemContent img
+	{
+		height:auto
+	}
+	
+	.testStyle .title,
+	.testStyle .date
+	{
+		float:none;
+	}
+	
+	.testStyle .title
+	{
+		font-size:20px;
+	}
+	
+	.testStyle .date li
+	{
+		font-size:17px;
+	}
+	
+	.headProfile .addStyle,
+	.headProfile .time
+	{
+		float:none;
+		display:block;
+		margin-bottom:25px;
+	}
+	
+	.randomQues .selectQues .titleSelect
+	{
+		margin-bottom:25px;
+	}
+	
+	.randomQues .selectQues .Count
+	{
+		width:100%;
+		margin-bottom:20px;
+	}
+	
+	.materialAcc.active .content
+	{
+		padding-left:20px;
+		padding-right:20px;
+	}
+	
+	.courseStyle
+	{
+		min-height:auto;
+	}
+
+	.courseStyle .courseItem img
+	{
+		height:auto;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 0;
+		border-top-left-radius: 10px;
+	}
+	
+	.courseStyle .courseItem .details
+	{
+		padding:30px;
+	}
+	
+	.courseStyle .courseItem .details .btnForm
+	{
+		top:calc(100% + 15px)
+	}
+	
+	.rewards .points .sectionLeft
+	{
+		width:100%;
+		margin-top:15px;
+	}
+	
+	.rewards .boxStyle
+	{
+		padding:20px
+	}
+	
+	.reward2 .sectionRight
+	{
+		margin-bottom:30px;
+	}
+	
+	.reward2 .sectionLeft,
+	.reward2 .sectionRight
+	{
+		width:100%;
+		max-width:100%;
+		float:none;
+	}
+	
+	.reward2 .sectionRight .renew .shareDiv .listShare
+	{
+		left:0;
+	}
+	
+	.askTeacher .savedForm .btnForm
+	{
+		margin-top:0;
+		width:100%;
+	}
+	
+	.pilotDetails .askDiv
+	{
+		text-align:center;
+		padding:30px 20px;
+	}
+	
+	.pilotDetails .askDiv .imgDiv
+	{
+		position: static;
+		margin-bottom:25px;
+	}
+	
+	.pilotDetails .askDiv .details
+	{
+		padding:0;
+	}
+	
+	.pilotDetails .askDiv .details .title
+	{
+		display:block;
+		margin-bottom:20px;
+		font-size:25px;
+		max-width:100%;
+	}
+	
+	.pilotDetails .askDiv .details .circle
+	{
+		position:relative;
+		display:inline-block;
+		left:auto;
+		top:auto
+	}
+	
+	.pilotDetails .tableDiv {
+	    overflow-x: auto;
+	}
+	
+	.pilotDetails .tableQues
+	{
+		min-width:990px
+	}
+	
+	.cpanelStyle .footer .sectionRight
+	{
+		display:none
+	}
+	
+	.Subscriptions .plans .plan
+	{
+		width:calc(50% - 15px);
+	}
+	
+	.Challenges .chal
+	{
+		display:block
+	}
+	
+	.Challenges .chalUser
+	{
+	    width: calc(50% - 25px);
+	    margin:0 12.5px 15px;
+	}
+	
+	.Challenges .chal .shareChal
+	{
+		position: static;
+		margin-top:10px;
+		width:100%;
+		padding:20px;
+	}
+	
+	.Challenges .chal .vs
+	{
+	    right: calc(50% - 23px);
+	}
+	
+	.cpanelStyle .footer
+	{
+		padding-top:15px;
+		padding-bottom:15px;
+	}
+	
+	.linksCompetitions ul li:not(:last-of-type)
+	{
+		margin-left:50px
+	}
+	
+	.BgCompetitions,
+	.bgQues,
+	.bgRandom
+	{
+		display:none;
+	}
+	
+	.quesPage,
+	.randomPage
+	{
+		padding-bottom:150px
+	}
+	
+	.services .item
+	{
+		margin-bottom:150px;
+	}
+	
+	.menuCpanel .linksCpanel li:not(:last-of-type)
+	{
+		margin-bottom:5px;
+	}
+	
+	.detailsHome .owl-theme .owl-dots
+	{
+		bottom:auto;
+		top:20px;
+		right: 80px;
+	}
+	
+	.slider .item .details
+	{
+		padding-bottom:230px;
+		padding-top:120px;
+	}
+	
+	.slider .item .details .title{
+		font-size:30px;
+	}
+	
+	.slider .item .details .desc
+	{
+		font-size:25px;
+	}
+	
+}
+
+/* Small Screens */
+@media (min-width: 768px) and (max-width: 991px) 
+{
+	
+	.question .titleQues
+	{
+		padding-top:18px;
+	}
+	
+	.question .headQues .numbOfQ
+	{
+		margin:0 auto 110px
+	}
+	
+	.question .headQues .btnsHead
+	{
+		text-align:center;
+		width:100%;
+		top:80px
+	}
+	
+	.question .headQues .btnsHead a
+	{
+		float:none;
+		display:inline-block
+	}
+	
+	.question .headQues .btnsHead a:not(:last-of-type)
+	{
+		margin-right:0;
+		margin-left:25px;
+	}
+
+	
+}
+
+/* Mobile & Tablets */
+@media (max-width: 767px) 
+{
+	
+
+	.singUp .mask:before
+	{
+		width:calc(100% - 40px);
+		left:20px;
+	}
+	
+	
+	.Breadcrumb h2
+	{
+		font-size:40px
+	}
+	
+	.detailsHome .owl-theme .owl-dots
+	{
+		right:25px;
+	}
+	
+	
+	.askTeacher .askDiv .details .icon
+	{
+		left:15px;
+		top:15px;
+	}
+	
+	.askTeacher .askDiv
+	{
+		padding:30px 20px;
+		text-align:center
+	}
+	
+	.askTeacher .askDiv .imgDiv
+	{
+		position:relative;
+		top:auto;
+		right:auto;
+		left:auto;
+		display:inline-block;
+		margin-bottom:15px;
+	}
+	
+	.askTeacher .askDiv .details .title
+	{
+		padding:0;
+		font-size:20px;
+		line-height:33px;
+	}
+	
+	.askTeacher .askDiv .details
+	{
+		padding:0;
+	}
+	
+	.askTeacher .sendAsk .btnForm
+	{
+		width:100%;
+	}
+	
+	.headProfile
+	{
+		padding-bottom:15px;
+		padding-top:20px;
+	}
+	
+	.headProfile .settings
+	{
+		float:none;
+		display:inline-block;
+		text-align:center;
+		margin-bottom:20px;
+	}
+	
+	.minHeight600
+	{
+		padding-left:15px;
+		padding-right:15px;
+		padding-bottom:100px;
+	}
+	
+	.vids
+	{
+		padding-right:70px;
+	}
+	
+	.vids .itemVid .details
+	{
+		padding:20px 20px 30px;
+	}
+	
+	.vids .itemVid .details i
+	{
+		width:35px;
+		height:35px;
+		line-height:35px;
+		font-size:15px;
+	}
+	.vids .itemVid .details .titleVideo
+	{
+		font-size:18px
+	}
+	
+	.vids .tabsVideo
+	{
+		width:55px;
+	}
+	
+	.vids .tabsVideo .list li a
+	{
+		height:55px;
+		font-size:25px;
+		line-height:55px;
+	}
+	
+	.itemRate .listProgress li
+	{
+		margin-bottom:20px;
+		float:none;
+	}
+	
+	.itemRate .listProgress li:not(:last-of-type) {
+	    margin-right: 0;
+	}
+	
+	.profile .profileStyle .Bouquet
+	{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	
+	.profile .profileStyle .Bouquet .titleBouquet, 
+	.profile .profileStyle .Bouquet .price
+	{
+		font-size:20px;
+	}
+	
+	.profile .profileStyle .Bouquet .price
+	{
+		margin-top:-2px
+	}
+	
+	.profile .profileStyle .Bouquet .btns .btnBouquet:not(:last-of-type)
+	{
+		margin-right:0;
+		margin-bottom:20px;
+	}
+	
+	.profile .profileStyle .Bouquet .btns .btnBouquet
+	{
+		width:100%;
+		
+	}
+	
+	.competitions .compHead .title,
+	.competitions .compHead .date
+	{
+		width:100%;
+	}
+	
+	.competitions .compHead .date
+	{
+		margin-top:15px;
+	}
+	
+	.linksCompetitions ul li:not(:last-of-type)
+	{
+		margin-left:30px;
+	}
+	
+	.linksCompetitions ul li a
+	{
+		font-size:17px;
+	}
+	
+	.testStyle .numb
+	{
+		right:20px;
+	}
+	
+	.testStyle,
+	.testStyle.active
+	{
+		padding:30px 20px;
+	}
+	
+	.testStyle .numb
+	{
+		position: static;
+		display:block;
+		margin-bottom:15px;
+	}
+	
+	
+	.pagiDiv .next,
+	.pagiDiv .prev
+	{
+		display:none;
+	}
+	
+	.question
+	{
+		padding:20px;
+	}
+	
+	.question .headQues .numbOfQ
+	{
+		width:100%;
+		float:none;
+	}
+	
+	.question .headQues .btnsHead
+	{
+		position: static
+	}
+	
+	.question .headQues .btnsHead a
+	{
+		width:100%;
+		margin-bottom:20px;
+	}
+	
+	.question .headQues .btnsHead a:not(:last-of-type)
+	{
+		margin-right:
+	}
+	
+	.question .titleQues
+	{
+	    font-size: 23px;
+    	padding: 20px;
+    	padding-right:70px;
+    	min-height:75px;
+	}
+	
+	.question .titleQues i
+	{
+		width:45px;
+		height:45px;
+		line-height:45px;
+		right:15px;
+		font-size:20px;
+	}
+	
+	.question .answers .answer
+	{
+		padding-right:55px
+	}
+	
+	.question .answers .answer .title
+	{
+		width:50px;
+		height:50px;
+		line-height:50px;
+		font-size:20px;
+	}
+	
+	.question .answers .answer .content
+	{
+		font-size:20px;
+		min-height:50px;
+		padding:10px 15px 5px
+	}
+	
+	.question
+	{
+		margin-bottom:100px;
+	}
+	
+	.question .btnsForm
+	{
+		width:100%
+	}
+	
+	.question .btnsForm .btnForm
+	{
+		width:100%;
+	}
+	
+	.question .btnsForm .btnForm:first-of-type
+	{
+		margin-left:0;
+		margin-bottom:15px;
+	}
+	
+	.modalQues
+	{
+		padding:0 15px
+	}
+	
+	.modalQues .modal-dialog
+	{
+		margin:15px auto;
+		max-width:100%;
+	}
+	
+	.headProfile .addStyle
+	{
+		margin:0 auto 30px;
+		max-width:100%;
+	}
+	
+	.headProfile .time
+	{
+		margin:0 auto 25px
+	}
+	
+	.rewards .copyStyle .linkDiv
+	{
+		padding-left:0;
+	}
+	
+	.rewards .copyStyle .linkDiv .copy
+	{
+		position: static;
+		width:100%;
+		display:block;
+		margin-top:15px;
+	}
+	
+	.rewards .shareStyle .listShare li
+	{
+		width:100%;
+	}
+	
+	.rewards .shareStyle .listShare li:not(:last-of-type)
+	{
+		margin:0;
+		margin-bottom:15px;
+	}
+	
+	.rewards .shareStyle .listShare li a
+	{
+		width:100%;
+	}
+	
+	.reward2 .sectionRight .renew
+	{
+		padding-left:0;
+	    padding-bottom: 62px;
+	}
+	
+	.reward2 .sectionRight .renew .copy
+	{
+		right: 0;
+	    bottom: 0;
+	    width: calc(100% - 48px);
+	    left: 0;
+	}
+	
+	.savedQues .headSaved .listRemove li:not(:last-of-type):after
+	{
+		padding:0 15px;
+	}
+	
+	.savedQues .headSaved
+	{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	
+	
+	.pilotDetails .askDiv .imgDiv
+	{
+		margin-bottom:25px;
+	}
+	
+	.payment .visaImages .col-xs-4
+	{
+		padding:0 10px;
+	}
+	
+	.itemRate .rateHead
+	{
+		text-align:center
+	}
+	
+	.itemRate .rateHead .rightSection,
+	.itemRate .rateHead .leftSection,
+	.itemRate .rateHead .circle,
+	.itemRate .rateHead .textRate
+	{
+		float:none;
+		margin-bottom:15px;
+	}
+	
+	.itemRate .rateHead .textRate
+	{
+		margin-left:0;
+		margin-bottom:0;
+		margin-top:0;
+		display:block
+	}
+	
+	.ratePage2 .finishRate
+	{
+		margin-bottom:30px;
+	}
+	
+	.ratePage2 .itemDetails
+	{
+		padding-left:20px;
+		padding-right:20px;
+	}
+	
+	.ratePage2 .itemDetails img
+	{
+		display:none;
+	}
+	
+	.ratePage2 .itemDetails a
+	{
+		position: static;
+		margin:30px auto 0;
+		display:block;
+	}
+	
+	.ratePage2 .itemBeta
+	{
+		padding-right:25px;
+	}
+	
+	.ratePage2 .itemBeta img
+	{
+		display:none;
+	}
+	
+	.Subscriptions .plans .plan
+	{
+		width:calc(100% - 15px);
+	}
+	
+	.linksCompetitions ul li:not(:last-of-type) 
+	{
+    	margin-left: 15px;
+	}
+	
+}
+
+/* Tablets */
+@media (min-width:480px) and (max-width: 767px)
+{
+
+}
+
+/* Mobile */
+@media (max-width: 479px) 
+{
+	
+	.slider .item .details
+	{
+		padding-top:60px;
+		padding-bottom:190px;
+	}
+	
+	.slider .item .details .title
+	{
+		font-size:19px;
+	}
+	
+	.slider .item .details .desc
+	{
+		font-size:18px;
+	}
+	
+	.detailsHome .areYouStudent
+	{
+		padding:20px 15px 30px;
+		text-align:center
+	}
+	
+	.detailsHome .areYouStudent img
+	{
+		position: static
+	}
+	
+	.detailsHome .areYouStudent .details .desc
+	{
+		margin:0 auto 15px
+	}
+	
+	.detailsHome .areYouStudent .details
+	{
+		float:none;
+		padding-bottom:0;
+		padding-top:15px;
+	}
+	
+	.detailsHome .areYouStudent .details a
+	{
+		margin:0 auto
+	}
+	
+	.login .mask
+	{
+		height:320px;
+	}
+	
+	.login .mask:before
+	{
+		width:30px;
+	}
+	.socialLogin .titleSocial
+	{
+		font-size:14px
+	}
+	
+	.socialLogin .bgT:before
+	{
+		width:250px;
+		right:calc(50% - 125px)
+	}
+	
+	.socialLogin .listSocial li:not(:last-of-type) 
+	{
+	    margin-left: 20px;
+	}
+	
+	.menuCpanel .linksCpanel li a
+	{
+		padding-right:55px;
+	}
+	
+	.menuCpanel .linksCpanel li a i
+	{
+		width:55px;
+	}
+	
+	.menuCpanel
+	{
+		width:55px;
+	}
+	
+	.cpanelStyle 
+	{
+	    padding-right: 55px;
+	}
+	
+	.menuCpanel .iconMenuCpanel
+	{
+		left:13px;
+	}
+	
+	.menuCpanel.active .iconMenuCpanel
+	{
+		left:30px;
+	}
+	
+	.footer .listFooter li
+	{
+		display:block;
+		width:100%;
+	}
+	
+	.footer .listFooter li:before
+	{
+		display:none;
+	}
+	
+	.headProfile .settings .parentLi:not(:last-of-type)
+	{
+		margin-right:12px;
+	}
+	
+	.headProfile .detailsUser
+	{
+		padding-right:65px;
+		padding-top:5px;
+		min-height:55px
+	}
+	
+	.headProfile .detailsUser .uploadImage img
+	{
+		width:55px;
+		height:55px;
+	}
+	
+	.headProfile .detailsUser .titleUser
+	{
+		font-size:15px
+	}
+	
+	.incorparationQ .ques
+	{
+		padding:20px;
+	}
+	
+	.incorparationQ .ques .title
+	{
+		font-size:20px;
+	}
+	
+	.incorparationQ .ques .desc
+	{
+		font-size:15px;
+	}
+	
+	.profile .profileStyle .title,
+	.randomQues .titleStyle
+	{
+		padding-right:50px;
+		font-size:14px;
+		line-height:40px;
+	}
+	
+	.profile .profileStyle .title i,
+	.randomQues .titleStyle i
+	{
+		width:40px;
+		height:40px;
+		line-height:40px;
+		font-size:18px;
+	}
+	
+	.profile .profileStyle .titleForm
+	{
+		font-size:14px;
+	}
+	
+	.profile .profileStyle .Bouquet .listDate li span
+	{
+		width:100%;
+		display:block;
+		margin-bottom:5px;
+	}
+	
+	.selectQues
+	{
+		display:block
+	}
+
+	.selectQues .titleSelect
+	{
+		float:none;
+	}
+	
+	.Count
+	{
+		margin-top:20px;
+		float:none;
+		width:100%;
+	}
+	
+	.linksCompetitions ul li:not(:last-of-type)
+	{
+	    margin-left: 17px;
+	}
+	
+	.linksCompetitions ul li a
+	{
+		font-size:13px;
+		height:50px;
+		line-height:50px;
+	}
+	
+	.competitions .compHead
+	{
+		padding:20px;
+	}
+
+	.competitions .compHead .title
+	{
+		font-size:19px;
+	}
+	
+	.competitions .itemContent .details .title
+	{
+		font-size:19px;
+	}
+	
+	.competitions .itemContent .details .date
+	{
+		font-size:16px;
+	}
+	
+	.testStyle .date li:not(:last-of-type)
+	{
+		margin-bottom:15px;
+	}
+	
+	
+	.pagiDiv .pagination li a
+	{
+		width:25px;
+		height:25px;
+		line-height:25px;
+	}
+	
+	.question .headQues .btnsHead a
+	{
+		font-size:14px;
+	}
+	
+	.question .headQues
+	{
+		margin-bottom:20px;
+	}
+	
+	.question .headQues .titleHead
+	{
+		font-size:20px;
+	}
+	
+	.question .titleQues
+	{
+		padding:20px;
+		line-height:29px;
+		font-size:16px;
+	}
+	
+	.question .titleQues i
+	{
+		display:none;
+	}
+	
+	.headProfile .time
+	{
+		font-size:19px;
+	}
+
+	.headProfile .time span
+	{
+	    font-size: 20px;
+	    margin-right:10px;
+	}
+	
+	.askTeacher .randomQues
+	{
+		padding-left:20px;
+		padding-right:20px;
+	}
+	
+	.materialAcc .content .selectSkill,
+	.materialAcc .content .titleContent
+	{
+		font-size:16px;
+	}
+	
+	.materialAcc .content .checkList
+	{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	
+	.materialAcc .content .checkItem
+	{
+		padding-top:1px;
+	}
+	
+	.courseStyle .courseItem .details
+	{
+		padding:15px;
+	}
+	
+	.courseStyle .courseItem .details .price
+	{
+		font-size:20px;
+	}
+	
+	.courseStyle .courseItem .details .title
+	{
+		font-size:20px;
+	}
+	
+	.courseStyle .courseItem .details .desc
+	{
+		font-size:14px;
+	}
+	
+	.courseStyle .courseItem .details .btnForm
+	{
+		width:100%;
+		top:calc(100% + 15px)
+	}
+	
+	.questionS .quesS
+	{
+		padding-left:55px;
+	}
+	
+	.questionS .quesS .iconSelect
+	{
+		left:15px;
+	}
+	
+	.savedQues .headSaved .listRemove li .remove,
+	.savedQues .headSaved .listRemove li:not(:last-of-type):after,
+	.questionS .quesS
+	{
+		font-size:14px;
+	}
+	
+	.savedQues .headSaved .title
+	{
+		font-size:17px;
+	}
+	
+	.askTeacher .askDiv .details .btnASk
+	{
+		position: static;
+		width:100%;
+		margin-top:15px;
+		display:block
+	}
+	
+	.selectPilot .item
+	{
+		padding:30px 20px;
+	}
+	
+	.selectPilot .item .title
+	{
+		font-size:17px;
+	}
+	
+	.pilotForm .btnForm
+	{
+		width:100%;
+	}
+	
+	.materialAcc .content .selectSkill:before
+	{
+		top:12px;
+		width:30px;
+		height:30px;
+		line-height:30px;
+	}
+	
+	.rewards .boxStyle .title
+	{
+		font-size:22px;
+	}
+	
+	.rewards .desc,
+	.rewards .points .subTitle
+	{
+		font-size:14px;
+	}
+	
+	.itemRate
+	{
+		min-height:auto;
+	}
+	
+	.itemRate .listRate li
+	{
+		width:35px;
+	}
+	
+	.itemRate .listRate li:not(:last-of-type)
+	{
+		margin-right:10px;
+	}
+	
+	.circle canvas,
+	#chart-area
+	{
+		max-width:170px!important;
+		max-height:170px!important;
+	}
+	
+	.chartDiv .total
+	{
+		padding-top:45px;
+	}
+	
+	.messageCopy
+	{
+		width: calc(100% - 56px);
+	    right: 56px;
+	}
+	
+	.modalShare .modal-dialog
+	{
+		margin-top:20px;
+		width:auto;
+		max-width:100%;
+	}
+	
+	.itemRate .rateBody .bodyTitle
+	{
+		font-size:26px;
+	}
+	.ratePage2 .itemDetails .title
+	{
+		font-size:20px;
+	}
+	
+	.ratePage2 .itemBeta .title
+	{
+		font-size:27px;
+	}
+	
+	.finishRate .rateBody .bodyTitle
+	{
+		margin-bottom:20px;
+	}
+	
+	.ratePage2 .finishRate .rateBody img
+	{
+		margin-bottom:10px;
+	}
+	
+	.finishRate .rateBody .progress
+	{
+		min-height:32px;
+		height:auto
+	}
+	
+	.finishRate .rateBody .progress .line
+	{
+		height:32px;
+		float:none;
+		margin-bottom:1px;
+	}
+	
+	.finishRate .rateBody .progress .line .numb
+	{
+		bottom:0;
+	}
+	
+	.ratePage2 .finishRate .rateBody .progress .Text
+	{
+		min-width: 180px;
+    	font-size:14px;
+    	text-align:right;
+    	padding: 0 15px;
+    	padding-left:0
+	}
+	
+	.Challenges .chalUser 
+	{
+		float:none;
+		margin:0 0 15px;
+		width:100%;
+	}
+	
+	.Challenges .chal .vs
+	{
+		top:255px
+	}
+	
+	.linksCompetitions ul li
+	{
+		display:block;
+		width:100%;
+		border-bottom:1px solid #f8f9fd
+	}
+	
+	.linksCompetitions ul li:not(:last-of-type)
+	{
+		margin-left:0;
+	}
+	
+	.selectPilot .item .selectList li
+	{
+		width:100%;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+@media (max-width: 1170px) {
+.Breadcrumb
+	{
+		padding:27px 0
+	}
+	.formSing{
+		padding:30px 50px !important
+	}
+}

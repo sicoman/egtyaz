@@ -1,0 +1,1 @@
+Hello {{ $owner['name'] }} , Please Check this new Request #{{ $booking['id'] }}

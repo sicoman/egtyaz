@@ -1,0 +1,189 @@
+<template>
+    <div id="unitSearch">
+            <div class="app-container">
+                <el-form :model="query" label-position="left" label-width="150px">
+                    <el-row>
+                        
+                            <el-col :span="6">
+                                        <el-form-item :label="'Flag sent By'">
+                                            <el-select
+                                                v-model="query.user_id"
+                                                filterable
+                                                remote
+                                                placeholder="Search Flags sent By User"
+                                                :remote-method="searchUser"
+                                                :loading="loading">
+                                                    <el-option
+                                                        v-for="item in users_list"
+                                                        :key="item.id"
+                                                        :label="item.name"
+                                                        :value="item.id">
+                                                    </el-option>
+                                            </el-select>
+                                        </el-form-item>
+                            </el-col>
+
+                            <el-col v-if="query.type == 'user'" :span="6">
+                                        <el-form-item :label="'Flag On User'">
+                                            <el-select
+                                                v-model="query.flagged_id"
+                                                filterable
+                                                remote
+                                                placeholder="Flag On User"
+                                                :remote-method="searchUser2"
+                                                :loading="loading">
+                                                    <el-option
+                                                        v-for="item in users_list2"
+                                                        :key="item.id"
+                                                        :label="item.name"
+                                                        :value="item.id">
+                                                    </el-option>
+                                            </el-select>
+                                        </el-form-item>
+                            </el-col>
+
+                            <el-col v-if="query.type == 'unit'" :span="6">
+                                        <el-form-item :label="'Flag On Unit'">
+                                            <el-select
+                                                v-model="query.flagged_id"
+                                                filterable
+                                                remote
+                                                placeholder="Flag On Unit"
+                                                :remote-method="searchUnit"
+                                                :loading="loading">
+                                                    <el-option
+                                                        v-for="item in units_list"
+                                                        :key="item.id"
+                                                        :label="item.title"
+                                                        :value="item.id">
+                                                    </el-option>
+                                            </el-select>
+                                        </el-form-item>
+                            </el-col>
+
+                            <el-col :span="6">
+                                        <el-form-item :label="'Status'">
+                                            <el-select v-model="query.status" placeholder="Status" filterable >
+                                                    <el-option v-for="( v , k ) in bookingStatus" :key="k" :label="v" :value="parseInt(k)" />
+                                            </el-select>
+                                        </el-form-item>
+                            </el-col>
+                            <el-col :span="1">&nbsp;</el-col>
+                            <el-col :span="5">
+                                        <el-button type="primary" @click="DoSearch">Search</el-button>
+                                        <el-button type="warning" @click="CancelSearch()">Cancel</el-button>
+                            </el-col>
+
+                    </el-row>
+
+                    <el-row>
+                            
+                    </el-row>
+
+
+                </el-form>
+            </div>
+    </div>
+</template>
+
+<script>
+    import settings from '@/settings' ;
+
+    import UnitResource from '@/api/ezuru/units' ;
+    import UserResource from '@/api/user' ;
+
+    let Units = new UnitResource() ;
+    let Users = new UserResource() ;
+
+    export default {
+        prop : ['search'] ,
+        data(){
+            return {
+               loading: false, 
+               query : {},
+               bookingStatus : settings.flagStatus,
+               type : [],
+               users_list : [],
+               users_list2 : [],
+               units_list : [],
+            }
+        },
+        methods : {
+            setSearch(){
+               this.$parent.query =  this.query ;
+            },
+            getUsers(){
+                let self = this ;
+                fetch(settings.apiUrl+'admin/users/list')
+               .then( res => res.json() )
+               .then( function(res){
+                     self.users = res ; 
+               });
+            } ,
+            DoSearch(){
+                this.$parent.gety() ;
+            },
+            CancelSearch(){
+                var no = { "page" : this.query.page , "limit" : this.query.limit , "type" : this.query.type } ;
+                this.query = no ;
+            },
+            async searchUnit(query) {
+                if (query.length >= 3 ) {
+                    this.loading = true;
+                    let self = this ;
+                    this.units_list = await Units.select( { 's' : query } ) ; 
+                    this.loading = false;  
+                } else {
+                    this.units_list = [];
+                }
+            } ,
+            async searchUser(query) {
+                if (query.length >= 3 ) {
+                    this.loading = true;
+                    let self = this ;
+                    this.users_list = await Users.select( { 's' : query } ) ; 
+                    this.loading = false;  
+                } else {
+                    this.users_list = [];
+                }
+            } ,
+            async searchUser2(query) {
+                if (query.length >= 3 ) {
+                    this.loading = true;
+                    let self = this ;
+                    this.users_list2 = await Users.select( { 's' : query } ) ; 
+                    this.loading = false;  
+                } else {
+                    this.users_list2 = [];
+                }
+            }    
+        },
+        mounted(){
+            this.query = this.$attrs.search ;
+        },
+        watch : {
+            query : {
+                deep: true,
+                handler() {
+                     this.setSearch() ;
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    #unitSearch{
+        padding:20px 0;
+        background:#f1f1f1
+    }
+
+    .el-form-item__label{
+        text-align: center!important
+    }
+
+    .el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner,.el-date-editor--daterange.el-input, .el-date-editor--daterange.el-input__inner{
+        max-width: 100%
+    }
+    
+</style>

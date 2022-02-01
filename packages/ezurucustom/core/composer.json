@@ -1,0 +1,29 @@
+{
+    "name": "EzuruCustom/core",
+    "description": "EzuruCustom core package",
+    "license": "MIT",
+    "url": "packages/EzuruCustom/core",
+    "authors": [
+        {
+            "name": "Gaber abdo",
+            "email": "futureslasher@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rebing/graphql-laravel": "^1.24"
+    },
+    "autoload": {
+        "psr-4": {
+            "EzuruCustom\\Core\\": "src"
+        }
+    }
+    ,"extra": {
+        "laravel": {
+            "providers": [
+                "EzuruCustom\\Core\\ServiceProvider"
+            ]
+        }
+    }
+ 
+}

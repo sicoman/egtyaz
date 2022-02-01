@@ -1,0 +1,1 @@
+<p><strong>Welcome {{ $name }} </strong>, Good job .</p>

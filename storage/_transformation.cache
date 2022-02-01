@@ -1,0 +1,7 @@
+<?php return array (
+  AOP_ROOT_DIR . '\\vendor\\xe\\xecd-rates-client\\XecdRatesClient.php' => 
+  array (
+    'filemtime' => 1577316284,
+    'cacheUri' => AOP_CACHE_DIR . '\\vendor\\xe\\xecd-rates-client\\XecdRatesClient.php',
+  ),
+);
