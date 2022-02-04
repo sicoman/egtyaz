@@ -1,13 +1,14 @@
 
-  @extends('layouts.dashboard') 
+  @extends('layouts.dashboard')
 
   @section('Content')
 
     @include('frontend.includes.topPartDashboard')
-    
-	@include('frontend.includes.breadCrumbDashboard')	    
-	   
+
+	@include('frontend.includes.breadCrumbDashboard')
+
     <div class="minHeight600 quesPage">
+
     		 <img src="/frontend/images/bgQues.png" class="bgQues">
 
              <div class="headQues testStyle clearfix">
@@ -15,21 +16,21 @@
                         {{ $subjects->name ?? '' }}
                     </h1>
     		  </div>
-    		
+
     		<form class="question">
 
     			<div id="RenderQuestion"></div>
-				
+
 				<div class="btnsForm">
-					<a class="btnForm getNext" >السؤال التالى</a>  
+					<a class="btnForm getNext" >السؤال التالى</a>
                     <a class="btnForm btn btn-success getFinish" data-toggle="modal" data-target="#modalQues"> انهاء المذاكرة </a>
-					<button class="btnForm prevBtn getPrev">السؤال السابق</button>  
+					<button class="btnForm prevBtn getPrev">السؤال السابق</button>
 				</div>
-				  			
-    			
+
+
     		</form>
-    		
-	    </div>  
+
+	    </div>
 
 
         <div id="modalQues" class="modalQues modalStyle3 modal fade order-box" role="dialog">
@@ -43,13 +44,13 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <a class="hide hidden openYes" data-toggle="modal" data-target="#modalYes">  </a>
         <a class="hide hidden openNo" data-toggle="modal" data-target="#modalNo">  </a>
 
         <div id="modalYes" class="modalQues modalStyle2 modal fade order-box in" role="dialog" aria-hidden="false">
-            <div class="modal-dialog">        
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                             <div class="details">
@@ -64,7 +65,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="modalNo" class="modalQues modalStyle2 modal fade order-box in" role="dialog" aria-hidden="false">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -130,7 +131,7 @@
             if( Current == 0 ){
                 $('.getPrev.btnForm').hide();
             }
-            
+
         }
 
         function AnswerThisQuestion(question , answer , is_true , timeUsed ){
@@ -177,7 +178,7 @@
                     }
                 }
             });
-            
+
             return Cur ;
         }
 
@@ -229,14 +230,14 @@
             }else{
                 var att_html = '' ;
             }
-            
+
             var answers = `` ;
 
             var i = 1 ;
 
             if( question.answers.length > 0 ){
 
-                // If Has Chosed answer 
+                // If Has Chosed answer
                 var chosen_answer = getAnswer( question.id ) ;
 
                 question.answers.map( function( answer  ){
@@ -257,7 +258,7 @@
                 is_in_wish = 'active' ;
             }
 
-  
+
             $('#RenderQuestion').html(`
             <div class="headQues clearfix">
     				<span class="numbOfQ">السؤال رقم:  `+Current+` /  `+{{ $request->count }}+` </span>
@@ -269,12 +270,12 @@
                 </div>
 
                 `+att_html+`
-                
+
     			<h2 class="titleQues" data-question="`+question.id+`">
     				<i class="flaticon-copy"></i>
     				`+question.title+`
     			</h2>
-                
+
     			<div class="answers">
     				`+answers+`
     			</div>
@@ -284,20 +285,20 @@
         var ExamSeconds = 0 ; var interval ; var stopped = 0 ;
 
         $(document).on( 'click' , '#stopTimer' , function(){
-                
+
                 let obj = $(this);
-                $.ajax({	
-                    url: "{{route('addOrRemoveInWishlist')}}",  
-                    dataType: 'json',  
+                $.ajax({
+                    url: "{{route('addOrRemoveInWishlist')}}",
+                    dataType: 'json',
                     cache: false,
                     data: {
                         key_id: $(this).attr('data-id')
                     },
                     headers: {
                         'X-CSRF-TOKEN': $('input[name="_token"]').attr('value')
-                    },                  
+                    },
                     type: 'post',
-                    success: function(data){ 
+                    success: function(data){
                         if(data.action == "add"){
                         obj.removeClass("btn-danger").addClass("btn-success");
                         obj.addClass('active');
@@ -318,9 +319,9 @@
                         })
                     }
                 });
-         
+
 		  return false;
-                
+
         });
 
 
@@ -329,14 +330,14 @@
             setInterval(function () {
                 if( stopped == 1 ){
                      return false ;
-                }   
+                }
                 min = parseInt(ExamSeconds / 60, 10);
                 sec = parseInt(ExamSeconds % 60, 10);
 
                 min = min < 10 ? "0" + min : min;
                 sec = sec < 10 ? "0" + sec : sec;
                 dis.text(min + ":" + sec);
-            
+
             }, 1000);
         }
 
@@ -346,7 +347,7 @@
 
                  if( stopped == 1 ){
                      return false ;
-                 }   
+                 }
 
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
@@ -372,13 +373,13 @@
 
         $(document).ready(function(){
 
-            AllTimer( $('#Alltimer') ) ;    
+            AllTimer( $('#Alltimer') ) ;
             RenderQuestion() ;
 
             $('.getPrev.btnForm,.getFinish.btnForm').hide() ;
 
             $('.getFinish').click(function(){
-                
+
                 if( $(this).is('.mo') ){
                     $('#modalNo').hide().modal('hide') ;
                     $('#modalYes').hide().modal('hide') ;
@@ -386,22 +387,22 @@
                 }
 
                 saveAnswer( true ) ;
-                
+
                 $('.getPrev.btnForm').show();
                 $('.getNext.btnForm').hide() ;
 
-                
 
-                return false; 
+
+                return false;
 
             });
 
-            $('.getNext').click(function(){ 
+            $('.getNext').click(function(){
                 if( stopped == 1 ){
                     alert('الاختبار متوقف حاليا لحين الاستكمال') ;
                     return false;
                 }
-                
+
                 if(!$('div.answers div.answer.active').length ){
                     if($('.select_answer_to_continue').length){
                         return false;
@@ -434,7 +435,7 @@
                 }
 
                 saveAnswer() ;
-                
+
                 RenderQuestion() ;
                 if( Current == 1 ){
                     $('.getPrev.btnForm').hide();
@@ -463,10 +464,10 @@
                         $('#modalNo').hide().modal('hide') ;
                         $('#modalYes').hide().modal('hide') ;
                     },500);
-                    
+
                 }
 
-                return false; 
+                return false;
             });
 
             function hideThisAnswer(){
@@ -480,9 +481,9 @@
                  var q = Xm[Current]  ;
 
                  if( !q ){
-                    q = Xm[Current-1]  ; 
+                    q = Xm[Current-1]  ;
                  }
-                 
+
                  var valid = 0 ;
                  if( q.itrue.hasOwnProperty('id') ){
                      valid = q.itrue.id ;
@@ -490,7 +491,7 @@
                      setTimeout(function(){
                         $('.answer[data-id="'+valid+'"]').addClass('blink_me') ;
                      }, 300 );
-                     
+
                  }
 
                  $('#modalNo').hide().modal('hide') ;
@@ -498,14 +499,14 @@
 
 
             $('.getPrev').click(function(){
-                
+
                 if( isFinished ){
                     prevQuestion(0);
                 }else{
                     prevQuestion(2);
                 }
 
-                
+
                 if( $(this).is('.mo2') ){
                     ShowValidAnswer() ;
                 }else{
@@ -522,7 +523,7 @@
 
                 isFinished = false ;
 
-                return false; 
+                return false;
             });
 
 
@@ -541,7 +542,7 @@
 
     </script>
 
-    <style> 
+    <style>
         #stopTimer.btn-warning{
             background:#ec971f !important;
             color:#fff !important;
