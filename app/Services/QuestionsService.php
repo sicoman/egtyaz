@@ -33,14 +33,14 @@ class QuestionsService extends BaseService
             $data->whereIn('id' , $in ) ;
         }
 
-        if($old == 0){  
+        if($old == 0){
             $userQuestions = DB::table('previous_user_questions')
             ->select('question_id')
             ->where('user_id', '=', $user_id);
-         
+
             $data->whereNotIn('id', $userQuestions);
         }
-      
+
         return $data->with('itrue')->get() ;
     }
 
@@ -51,7 +51,7 @@ class QuestionsService extends BaseService
         $this->questions = $this->repo ;
 
         $random = $request->random ?? '' ; $old = $request->old ?? '' ; $repeat = $request->repeat ?? '' ;
-        
+
         if( isset($skills) && !empty($skills) ) {
             $all_ids = [] ; $perSkill = floor( $count / count($skills) ) ; $moreThan = 0 ;
             if( $count <> ( $perSkill * count($skills) ) ){ $moreThan = $count - ($perSkill * count($skills)) ; }
@@ -77,7 +77,7 @@ class QuestionsService extends BaseService
                 }else{
                     $questions->limit( $perSkill ) ;
                 }
-                
+
                 $skill_ids = $questions->pluck('id')->toArray() ;
 
                 foreach($skill_ids as $skid){
@@ -90,8 +90,8 @@ class QuestionsService extends BaseService
 
 
         }
-    
-        return $this->questions->whereIn('id' , $all_ids)->limit( $count )->orderBy('skill_id')->orderBy('attachment_id' , 'DESC')->with('itrue')->with('answers')->get() ; //->distinct();
+
+        return $this->questions->whereIn('id' , $all_ids)->with('attachment')->limit( $count )->orderBy('skill_id')->orderBy('attachment_id' , 'DESC')->with('itrue')->with('answers')->get() ; //->distinct();
 
     }
 

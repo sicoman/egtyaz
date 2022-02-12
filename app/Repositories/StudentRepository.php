@@ -34,11 +34,11 @@ class StudentRepository extends BaseRepository
 
     protected $taxonomy ;
 
-    protected $posts ; 
+    protected $posts ;
 
     public function __construct(Application $app , Exams $exams , Taxonomy $taxonomy , Posts $posts)
     {
-        parent::__construct($app); 
+        parent::__construct($app);
 
         $this->posts = $posts ;
 
@@ -49,7 +49,7 @@ class StudentRepository extends BaseRepository
     }
 
     public function model(){
-        return ('App\\Models\Options') ;  
+        return ('App\\Models\Options') ;
     }
 
     public function getSetting( $type ){
@@ -57,7 +57,7 @@ class StudentRepository extends BaseRepository
             $returnOptions = [] ;
             $options = $this->model->whereIn('type' , $type )->select([ 'type' ,'option_value' , 'option_var']) ;
             foreach($options as $option){
-                $returnOptions[$option->type][ $option->option_var] =  $option->option_value ; 
+                $returnOptions[$option->type][ $option->option_var] =  $option->option_value ;
             }
             return  $returnOptions ;
         }
@@ -74,26 +74,26 @@ class StudentRepository extends BaseRepository
 
         if(  empty($data['subjects']) ){
             return  back() ;
-        } 
+        }
 
 
         $subjects = array_keys($data['subjects']) ;
         $skills = [] ;
 
-        
+
         foreach( $data['subjects'] as $skill){
             foreach($skill['skills'] as $k => $sk){
                 $skills[] = $k ;
             }
         }
-        
+
         return $this->exams->CreateExam( 'free' , Auth::user()->id , $subjects , $skills , $time , $count ) ;
     }
 
-    public function getExam($id , $limit = 0){  
+    public function getExam($id , $limit = 0){
 
         $exam = $this->exams->model->where('id' , $id)->with('subjects')->with('skills')->with('Answers')->first() ;
-       
+
         if(!isset($exam->id)){
             return false ;
         }
@@ -106,10 +106,10 @@ class StudentRepository extends BaseRepository
             $skills[] = $skill->skill_id ;
         }
 
- 
+
         $questions = $this->exams->getExamQuestionsObject( $exam ,  $skills , $subjects , $exam->questions_count )
         ->with('answers')->with('attachment')->get() ;
-       
+
         return [ 'exam' => $exam , 'questions' => $questions , 'subjects' => $subjects , 'skills' => $skills ] ;
 
     }
@@ -117,7 +117,7 @@ class StudentRepository extends BaseRepository
     public function getExamResult($id , $limit = 0 , $forceUser = 0){
 
         $exam = $this->exams->model->where('id' , $id)->with('subjects')->with('skills')->first() ;
-       
+
         if(!isset($exam->id)){
             return false ;
         }
@@ -165,7 +165,7 @@ class StudentRepository extends BaseRepository
 
         $student_id = auth()->user()->id ;
 
-        foreach( $answers['answers'] as $answer ){  
+        foreach( $answers['answers'] as $answer ){
             $answer = (array) $answer ;
             $tru = 0 ; if( $answer['is_true'] == 'true' || $answer['is_true'] == 1 ){ $tru = 1 ; }elseif( $answer['is_true'] == -1 ){ $tru = -1 ; }
             $data = [
@@ -194,7 +194,7 @@ class StudentRepository extends BaseRepository
             }
         }
 
-    
+
         $results['wrong_answers'] = $all_counts - $results['valid_answers'] ;
 
         $results['percent'] = round( ( ($results['valid_answers'] * 100) / $all_counts ) , 1 ) ;
@@ -235,14 +235,14 @@ class StudentRepository extends BaseRepository
     public function getRate(){
         $list = [
             'subjects' => [] ,
-            'skills'   => [] , 
+            'skills'   => [] ,
             'questions' => []
         ] ;
 
         // get student mock tests
         $mock_ids = $this->exams->where('type' , 'mock')->pluck('id')->toArray() ;
 
-        // Get All User Answered Questions 
+        // Get All User Answered Questions
         $answers = examAnswers::where('student_id' , auth()->user()->id )
         //->whereIn('exam_id' , $mock_ids )
         ->select( ['id' , 'question_id' , 'is_true' , DB::raw( 'count(id) as times' )] )
@@ -252,8 +252,8 @@ class StudentRepository extends BaseRepository
             $list['questions'][$answer->question_id][$answer->is_true] = $answer->times ;
             $list['subjects'][$answer->question->subject_id ?? 0][$answer->question_id] =  $answer->question_id ;
             $list['skills'][$answer->question->skill_id ?? 0][$answer->question_id] =  $answer->question_id ;
-        } 
-        
+        }
+
         $percents = [] ;
 
         foreach( $list['subjects'] as $subject => $data ){
@@ -264,7 +264,7 @@ class StudentRepository extends BaseRepository
             $percents[$skill] = $this->getPercent( $data , $list['questions'] ) ;
         }
 
-        // Get This Taxonomies 
+        // Get This Taxonomies
 
         $rateTaxs = $this->taxonomy->WhereIn( 'id' , array_keys($percents) )->select( [ 'id' , 'type' , 'name' , 'parent'] )->get()->toArray() ;
 

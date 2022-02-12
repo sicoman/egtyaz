@@ -1,12 +1,12 @@
 
-  @extends('layouts.dashboard') 
+  @extends('layouts.dashboard')
 
   @section('Content')
 
     @include('frontend.includes.topPartDashboard')
-    
-	@include('frontend.includes.breadCrumbDashboard')	    
-	   
+
+	@include('frontend.includes.breadCrumbDashboard')
+
     <div class="minHeight600 quesPage">
     		 <img src="/frontend/images/bgQues.png" class="bgQues">
     		<div class="testStyle clearfix">
@@ -16,21 +16,21 @@
 					<li><i class="flaticon-information"></i>عدد الأسئلة : {{ $exam->questions_count }}  </li>
 				</ul>
     		</div>
-    		
+
     		<form class="question">
 
     			<div id="RenderQuestion"></div>
-				
+
 				<div class="btnsForm">
-					<a class="btnForm getNext" >السؤال التالى</a>  
+					<a class="btnForm getNext" >السؤال التالى</a>
                     <a class="btnForm btn btn-success getFinish" data-toggle="modal" data-target="#modalQues"> انهاء الاختبار </a>
-					<button class="btnForm prevBtn getPrev">السؤال السابق</button>  
+					<button class="btnForm prevBtn getPrev">السؤال السابق</button>
 				</div>
-				  			
-    			
+
+
     		</form>
-    		
-	    </div>  
+
+	    </div>
 
 
         <div id="modalQues" class="modalQues modalStyle3 modal fade order-box" role="dialog">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
 
  @endsection
@@ -53,7 +53,7 @@
   @section('custom_javascript')
 
     <script type="text/javascript">
-    
+
         var Xm       = {!! json_encode( $questions ) !!} ;
 
         var Exam     = {!! json_encode( $exam ) !!} ;
@@ -109,7 +109,7 @@
                     }
                 }
             });
-            
+
             return Cur ;
         }
 
@@ -146,20 +146,20 @@
             var question = getFromQuestions() ;
 
             var att =  question.attachment ;
-
+            
             if( att && att.hasOwnProperty('description') && att.description &&  att.description.length > 4 ){
                 var att_html = `<div class="QuestionAttachments titleQues"><p class="alert alert-warning">`+att.file+`</p><div class="">`+att.description+`</div></div>` ;
             }else{
                 var att_html = '' ;
             }
-            
+
             var answers = `` ;
 
             var i = 1 ;
 
             if( question.answers.length > 0 ){
 
-                // If Has Chosed answer 
+                // If Has Chosed answer
                 var chosen_answer = getAnswer( question.id ) ;
 
                 question.answers.map( function( answer  ){
@@ -188,17 +188,17 @@
     				</div>
     				<h1 class="titleHead"> </h1>
                 </div>
-                
 
-                
+
+
                     `+att_html+`
-                
+
 
     			<h2 class="titleQues" data-question="`+question.id+`">
     				<i class="flaticon-copy"></i>
     				`+question.title+`
     			</h2>
-                
+
     			<div class="answers">
     				`+answers+`
     			</div>
@@ -225,22 +225,22 @@
             setInterval(function () {
                 if( stopped == 1 ){
                      return false ;
-                }   
+                }
                 min = parseInt(ExamSeconds / 60, 10);
                 sec = parseInt(ExamSeconds % 60, 10);
 
                 min = min < 10 ? "0" + min : min;
                 sec = sec < 10 ? "0" + sec : sec;
                 dis.text(min + ":" + sec);
-            
+
             }, 1000);
         }
 
         function goFinish(){
 
                 var already_answered = [] ;
-                
-                Answered.map( function( q ){ 
+
+                Answered.map( function( q ){
                     already_answered.push( q.id ) ;
                 }) ;
 
@@ -255,11 +255,11 @@
                             'answer' : 0 ,
                             'is_true'  : -1 ,
                             'time' : 0
-                        })  ; 
+                        })  ;
                     }
                 }) ;
 
-                
+
                 //console.log(Answered) ;
                 //return false ;
 
@@ -279,7 +279,7 @@
 
                  if( stopped == 1 ){
                      return false ;
-                 }   
+                 }
 
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
@@ -310,7 +310,7 @@
                         goFinish() ;
                         return false ;
                     }
-                    
+
                 }
 
                 ExamSeconds++ ;
@@ -324,7 +324,7 @@
 
         $(document).ready(function(){
 
-            AllTimer( $('#Alltimer') ) ;    
+            AllTimer( $('#Alltimer') ) ;
             RenderQuestion() ;
 
             $('.getPrev,.getFinish').hide() ;
@@ -336,7 +336,7 @@
                 }
 
                 saveAnswer() ;
-                
+
                 RenderQuestion() ;
                 if( Current == 1 ){
                     $('.getPrev').hide();
@@ -353,7 +353,7 @@
                     $('.getNext').show();
                 }
 
-                return false; 
+                return false;
 
             });
 
@@ -374,10 +374,10 @@
                     $('.getNext').show();
                 }
 
-                return false; 
+                return false;
             });
 
-            
+
 
             $('.getFinish').click(function(){
 
@@ -385,7 +385,7 @@
                 // Save to Database
 
                 goFinish() ;
-                
+
                 return false ;
             });
 
@@ -404,7 +404,7 @@
 
     </script>
 
-    <style> 
+    <style>
         #stopTimer.btn-warning{
             background:#ec971f !important;
             color:#fff !important;

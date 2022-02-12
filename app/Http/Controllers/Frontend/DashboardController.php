@@ -142,6 +142,7 @@ class DashboardController extends FrontendController
         if( isset( $request->skills ) && !empty($request->skills) ){
             $subject = $this->taxService->getById( $request->subject ) ;
             return $this->getSkillsQuestions( $request , $subject ) ;
+
          }
         $subjects = $this->taxService->getSubjects($category_id);
 
@@ -169,7 +170,7 @@ class DashboardController extends FrontendController
     }
 
     public function getSkillsQuestions(Request $request , $subjects  ){
-
+            //بنك الأسئلة
         $user_id = $this->getUser()->id;
         $questionService = $this->questionService;
         $questions = $this->questionService->getBySkillsNew( array_keys( $request->skills ) , $request->count ?? 10, $user_id, $request ) ;
@@ -177,7 +178,7 @@ class DashboardController extends FrontendController
         $questions->each(function($question) use($questionService, $user_id){
             $questionService->addtoPreviousQuestions($question['id'], $user_id);
         });
-
+          
         return $this->view('frontend.dashboard.bank.study', compact('questions' , 'request' , 'subjects' )) ;
     }
 
