@@ -10,12 +10,12 @@
 	    </div>
         <div id="modalQues" class="modalQues  modal fade order-box" role="dialog">
           <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" style="width: 600px">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">مراجعة المفهوم</h4>
                     </div>
-                    <div class="modal-body" style="width: 600px">
+                    <div class="modal-body" >
                         {!! strip_tags($question[0]->description, "<img><sub><sup><br><p><span><iframe>") !!}
                     </div>
                 </div>
