@@ -1,13 +1,13 @@
 
-  @extends('layouts.dashboard') 
+  @extends('layouts.dashboard')
   @section('Content')
     @include('frontend.includes.topPartDashboard')
-	@include('frontend.includes.breadCrumbDashboard')	    
+	@include('frontend.includes.breadCrumbDashboard')
         <div class="minHeight600 quesPage">
             <form  class="question">
                 <div id="RenderQuestion"></div>
             </form>
-	    </div>  
+	    </div>
         <div id="modalQues" class="modalQues  modal fade order-box" role="dialog">
           <div class="modal-dialog">
                 <div class="modal-content">
@@ -15,18 +15,18 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">مراجعة المفهوم</h4>
                     </div>
-                    <div class="modal-body">
-                        {!! strip_tags(html_entity_decode($question[0]->description) , "<img><sub><sup><br><p><span>") !!}
+                    <div class="modal-body" style="overflow: scroll">
+                        {!! strip_tags($question[0]->description, "<img><sub><sup><br><p><span><iframe>") !!}
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
  @endsection
 
   @section('custom_javascript')
 
     <script type="text/javascript">
-    
+
         var Xm       = {!! json_encode( $question ) !!} ;
 
         var Exam     = {!! json_encode( [] ) !!} ;
@@ -45,7 +45,7 @@
             Current++ ;
             return CurrentQuestion ;
         }
-    
+
         function RenderQuestion(){
 
             var question = getFromQuestions() ;
@@ -57,14 +57,14 @@
             }else{
                 var att_html = '' ;
             }
-            
+
             var answers = `` ;
 
             var i = 1 ;
 
             if( question.answers.length > 0 ){
 
-                // If Has Chosed answer 
+                // If Has Chosed answer
                 var chosen_answer = false ;
 
                 question.answers.map( function( answer  ){
@@ -80,7 +80,7 @@
                 answers = answers + `<p class="alert alert-danger"> عفوا لا يوجد أجابات فى هذا السؤال ( ! ) </p>` ;
             }
             var st = '<a href="#"  data-toggle="modal" data-target="#modalQues" > مراجعة المفهوم <i class="flaticon-help"></i></a><br />' ;
-            
+
             $('#RenderQuestion').html(`
             <div class="headQues clearfix">
     				<div class="btnsHead">
@@ -106,7 +106,7 @@
 
     </script>
 
-    <style> 
+    <style>
         #stopTimer.btn-warning{
             background:#ec971f !important;
             color:#fff !important;
