@@ -146,7 +146,7 @@
             var question = getFromQuestions() ;
 
             var att =  question.attachment ;
-            
+
             if( att && att.hasOwnProperty('description') && att.description &&  att.description.length > 4 ){
                 var att_html = `<div class="QuestionAttachments titleQues"><p class="alert alert-warning">`+att.file+`</p><div class="">`+att.description+`</div></div>` ;
             }else{
@@ -260,12 +260,14 @@
                 }) ;
 
 
-                //console.log(Answered) ;
+                // console.log(Answered) ;
                 //return false ;
 
                 $.post( "{{ route('saveExam' , $exam->id ) }}" , { 'answers' : Answered } , function(d){
+                    console.log(d)
                     $('#modalQues').modal('show') ;
-                    $('.examResult').attr('href' , "{{ route('ExamResult' , '') }}/"+d  ) ;
+
+                    $('.examResult').attr('href' , "{{ route('ExamResult' ,$exam->id) }}") ;
                     setTimeout( () => {
                        // window.location.href = "{{ route('ExamResult' , '') }}/"+d  ;
                     } , 1500) ;

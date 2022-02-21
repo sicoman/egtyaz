@@ -178,7 +178,7 @@ class DashboardController extends FrontendController
         $questions->each(function($question) use($questionService, $user_id){
             $questionService->addtoPreviousQuestions($question['id'], $user_id);
         });
-          
+
         return $this->view('frontend.dashboard.bank.study', compact('questions' , 'request' , 'subjects' )) ;
     }
 
@@ -189,6 +189,7 @@ class DashboardController extends FrontendController
 
     public function freeExam()
     {
+
         parent::shareUser();
 
         $subjects = $this->Stu->exam() ;
@@ -275,9 +276,12 @@ class DashboardController extends FrontendController
     public function ExamsBreadCrumb(){
         $this->addBreadCrumbLevel('انجازاتي', Route('exams') );
     }
+
     public function Exams($type = 'free'){
+
         parent::shareUser();
         $data = $this->Stu->getExamsByType($type , $this->getUser()->id) ;
+
         return $this->view('frontend.dashboard.exams.list' , ['list' => $data ] ) ;
     }
 

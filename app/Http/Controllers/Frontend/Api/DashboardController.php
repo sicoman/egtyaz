@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\Options ;
 use App\Models\Posts ;
 use App\Services\CouponService;
-use View ; 
+use View ;
 
 use DB;
 
@@ -43,7 +43,7 @@ class DashboardController extends  ApiController
             $returnOptions = [] ;
             $options = $this->options->whereIn('type' , $type )->select([ 'type' ,'option_value' , 'option_var']) ;
             foreach($options as $option){
-                $returnOptions[$option->type][ $option->option_var] =  $option->option_value ; 
+                $returnOptions[$option->type][ $option->option_var] =  $option->option_value ;
             }
             return  $returnOptions ;
         }
@@ -51,7 +51,7 @@ class DashboardController extends  ApiController
     }
 
     public function __construct( TaxonomyService $taxService  , QuestionsService $questionService, Student $student , Options $options, CouponService $couponService )
-    {    
+    {
         parent::__construct();
 
         $this->setMeta('title', 'لوحة تحكم الطالب');
@@ -75,7 +75,7 @@ class DashboardController extends  ApiController
 
     }
 
-    public function indexBreadCrumb(){  
+    public function indexBreadCrumb(){
         $this->addBreadCrumbLevel('بنك الاسئلة', Route('bank'));
     }
 
@@ -88,21 +88,21 @@ class DashboardController extends  ApiController
         $this->indexBreadCrumb();
         $this->addBreadCrumbLevel('أختبار تجريبى', Route('exam') );
     }
-    public function skillsBreadCrumb(){   
+    public function skillsBreadCrumb(){
         $route = Route::current();
         $this->subjectsBreadCrumb();
-        $this->addBreadCrumbLevel('المهارات', Route('subject_skills', 
-        ['category_id' => $route->parameter('category_id'), 
-        'subject_id' => $route->parameter('subject_id')]) 
+        $this->addBreadCrumbLevel('المهارات', Route('subject_skills',
+        ['category_id' => $route->parameter('category_id'),
+        'subject_id' => $route->parameter('subject_id')])
     );
     }
 
-    public function skillQuestionsBreadCrumb(){   
+    public function skillQuestionsBreadCrumb(){
         $route = Route::current();
-        $this->skillsBreadCrumb();  
-        $this->addBreadCrumbLevel('{$skill_name}', Route('subject_skills', 
-        ['category_id' => $route->parameter('category_id'), 
-        'subject_id' => $route->parameter('subject_id')]) 
+        $this->skillsBreadCrumb();
+        $this->addBreadCrumbLevel('{$skill_name}', Route('subject_skills',
+        ['category_id' => $route->parameter('category_id'),
+        'subject_id' => $route->parameter('subject_id')])
     );
     }
 
@@ -129,7 +129,7 @@ class DashboardController extends  ApiController
     }
 
     public function index()
-    {       
+    {
         parent::shareUser();
 
         $bankCategrories = $this->taxService->getQuestionsCategories('category');
@@ -138,7 +138,7 @@ class DashboardController extends  ApiController
     }
 
     public function subjects($category_id , Request $request )
-    {         
+    {
 
         if( isset( $request->skills ) && !empty($request->skills) ){
             $subject = $this->taxService->getById( $request->subject ) ;
@@ -152,10 +152,10 @@ class DashboardController extends  ApiController
     public function skillQuestions($category_id, $subject_id, $skill_id){
 
         $skill_name = '';
-      
+
         $questions = $this->questionService->getBySkill($skill_id);
- 
-        $skill = $this->taxService->getById($skill_id); 
+
+        $skill = $this->taxService->getById($skill_id);
         if($skill){
             $skill_name = $skill->name;
         }
@@ -163,16 +163,16 @@ class DashboardController extends  ApiController
     }
 
     public function skills($category_id, $subject_id)
-    {   
+    {
         parent::shareUser();
 
         $skills = $this->taxService->getSkills($subject_id);
-    
+
         return $this->view('frontend.dashboard.skills', compact('skills', 'category_id', 'subject_id'));
     }
 
-    public function getSkillsQuestions(Request $request , $subjects  ){ 
-        
+    public function getSkillsQuestions(Request $request , $subjects  ){
+
         $user_id = $this->getUser()->id;
         $questionService = $this->questionService;
         $questions = $this->questionService->getBySkillsNew( array_keys( $request->skills ) , $request->count ?? 10, $user_id, $request ) ;
@@ -204,7 +204,7 @@ class DashboardController extends  ApiController
     public function saveExam($id , Request $request){
 
         $answers = $request->all() ;
-        
+
         $listAnswers = [] ;
 
         foreach( $answers['answers'] as $answer ){
@@ -212,25 +212,25 @@ class DashboardController extends  ApiController
         }
 
         $answers['answers'] = $listAnswers ;
-        
+
         return $this->Stu->saveExam($id , $answers ) ;
-        
+
     }
 
     public function startExam($id , Request $requets){
 
         parent::shareUser();
         $data = $this->Stu->startExam($id) ;
-        
+
         if( !isset($data['exam']) ){
             return redirect( route('myExams') ) ;
-        }else{ 
+        }else{
             $results = $data['exam']->results()->where('user_id' , $this->getUser()->id )->first() ;
             if( isset($results->id) ) {
                 // return redirect( route('ExamResult' , $id ) ) ;
             }
         }
-        
+
         return $this->view('frontend.dashboard.exams.exam' , $data ) ;
     }
 
@@ -247,6 +247,7 @@ class DashboardController extends  ApiController
     }
 
     public function examResultShare($Fcode) {
+
         $code = explode('-x' , $Fcode) ;
         $getExamId = Exams::where( DB::raw( 'MD5( concat( id , ":" , created_at ) )') , $code[0] )->first();
 
@@ -255,7 +256,7 @@ class DashboardController extends  ApiController
         }
 
         $data = $this->Stu->getExamResult($getExamId->id , 10 , $code[1] ) ;
-    
+
         if( !isset($data['results']) ){
             return redirect('/') ;
         }
@@ -277,7 +278,7 @@ class DashboardController extends  ApiController
         $this->addBreadCrumbLevel('انجازاتي', Route('exams') );
     }
     public function Exams($type = 'free'){
-        parent::shareUser();  
+        parent::shareUser();
         $data = $this->Stu->getExamsByType($type , $this->getUser()->id) ;
         return $this->view('frontend.dashboard.exams.list' , ['list' => $data ] ) ;
     }
@@ -286,12 +287,12 @@ class DashboardController extends  ApiController
         $this->addBreadCrumbLevel('اختبارات القدرات', Route('mocks') );
     }
     public function Mocks($type = 'mock'){
-        parent::shareUser();  
+        parent::shareUser();
         $data = $this->Stu->getExamsByType($type , $this->getUser()->id) ;
         return $this->view('frontend.dashboard.exams.list' , ['list' => $data ] ) ;
     }
 
-    
+
 
     public function wishlist(Request $requets){
         parent::shareUser();
@@ -304,7 +305,7 @@ class DashboardController extends  ApiController
     }
 
 
-    public function previewCoupon($code){  
+    public function previewCoupon($code){
         $coupon = $this->couponService->isCoupon($code);
         return response()->json(['coupon' => $coupon]);
     }
@@ -317,12 +318,12 @@ class DashboardController extends  ApiController
 
     public function rate(){
         parent::shareUser();
-        $data = $this->Stu->getRate() ;  
+        $data = $this->Stu->getRate() ;
         return $this->view('frontend.dashboard.rate' , $data ) ;
     }
 
     public function cpanelBreadCrumb(){
-        
+
     }
 
     public function cpanel(){
@@ -331,14 +332,14 @@ class DashboardController extends  ApiController
 
         $data = $this->Stu->getRate() ;
 
-        $referalUrl = route("register")."?referer={$this->getUser()->code}"; 
+        $referalUrl = route("register")."?referer={$this->getUser()->code}";
 
-        $frontRepo = resolve("App\Repositories\FrontEndRepository");  
-      
+        $frontRepo = resolve("App\Repositories\FrontEndRepository");
+
         $data['referalUrl'] = $referalUrl ;
 
         $data['dashBlocks'] = $frontRepo->dashcpanel()['dash_blocks'];
-     
+
         return $this->view('frontend.dashboard.cpanel' , $data ) ;
     }
 
@@ -347,7 +348,7 @@ class DashboardController extends  ApiController
         Start Learn
     */
 
-    public function startBreadCrumb(){  
+    public function startBreadCrumb(){
         $this->addBreadCrumbLevel('التأسيس', Route('start'));
     }
 
@@ -356,26 +357,26 @@ class DashboardController extends  ApiController
         $this->addBreadCrumbLevel('المواد', Route('start_category_subjects', ['category_id' => Route::current()->parameter('category_id')]));
     }
 
-    public function startSkillsBreadCrumb(){   
+    public function startSkillsBreadCrumb(){
         $route = Route::current();
         $this->startSubjectsBreadCrumb();
-        $this->addBreadCrumbLevel('المهارات', Route('start_skills', 
-        ['category_id' => $route->parameter('category_id'), 
-        'subject_id' => $route->parameter('subject_id')]) 
+        $this->addBreadCrumbLevel('المهارات', Route('start_skills',
+        ['category_id' => $route->parameter('category_id'),
+        'subject_id' => $route->parameter('subject_id')])
     );
     }
 
-    public function startSkillQuestionsBreadCrumb(){   
+    public function startSkillQuestionsBreadCrumb(){
         $route = Route::current();
-        $this->startSkillsBreadCrumb();  
-        $this->addBreadCrumbLevel('{$skill_name}', Route('start_skills', 
-        ['category_id' => $route->parameter('category_id'), 
-        'subject_id' => $route->parameter('subject_id')]) 
+        $this->startSkillsBreadCrumb();
+        $this->addBreadCrumbLevel('{$skill_name}', Route('start_skills',
+        ['category_id' => $route->parameter('category_id'),
+        'subject_id' => $route->parameter('subject_id')])
     );
     }
 
     public function start()
-    {       
+    {
         parent::shareUser();
 
         $bankCategrories = $this->taxService->getQuestionsCategories('category');
@@ -384,7 +385,7 @@ class DashboardController extends  ApiController
     }
 
     public function startSubjects($category_id , Request $request )
-    {         
+    {
         if( isset( $request->skills ) && !empty($request->skills) ){
             $subject = $this->taxService->getById( $request->subject ) ;
             return $this->getSkillsQuestions( $request , $subject ) ;
@@ -395,11 +396,11 @@ class DashboardController extends  ApiController
     }
 
     public function startSkills($category_id, $subject_id)
-    {   
+    {
         parent::shareUser();
 
         $skills = $this->taxService->getSkills($subject_id);
-    
+
         return $this->view('frontend.dashboard.start.skills', compact('skills', 'category_id', 'subject_id'));
     }
 
@@ -408,7 +409,7 @@ class DashboardController extends  ApiController
         $questions  = Posts::where('status' , 1)->where('type' , 'learn')->where('taxonomy_id' , $skill_id)->paginate(20) ;
 
         $skill      = $this->taxService->getById($skill_id);
-        
+
         $skill_name = $skill->name;
 
         return $this->view('frontend.dashboard.start.skill-questions', compact('questions', 'category_id', 'subject_id','skill_name'));
@@ -416,7 +417,7 @@ class DashboardController extends  ApiController
 
 
     public function coursesBreadCrumb(){
-        
+
         $this->addBreadCrumbLevel('الدورات المتقدمة', Route('courses') );
     }
     public function courses($category = 0 , Request $request){

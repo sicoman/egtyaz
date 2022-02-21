@@ -23,7 +23,7 @@ class ExamsRepository extends BaseRepository{
 
     public function __construct(Application $app  , Questions $questions  ) // , examSubjects $exSubjects , examSkills $exSkills
     {
-        parent::__construct($app); 
+        parent::__construct($app);
 
         $this->questions    = $questions ;
 
@@ -45,7 +45,7 @@ class ExamsRepository extends BaseRepository{
            'student_id' => $user ,
            'questions_count' => $count ?? 10 ,
            'available_time' => $time ?? 30 ,
-           'level_id'  => null 
+           'level_id'  => null
         ]) ;
 
         $exam->save() ;
@@ -57,7 +57,7 @@ class ExamsRepository extends BaseRepository{
         foreach( $subjects as $subject => $kill ){
             if( $subject == 0 ){ continue ; }
             $exam->subjects()->create([
-                'subject_id' => $subject 
+                'subject_id' => $subject
             ]) ;
             $kills[] = $kill ;
         }
@@ -65,7 +65,7 @@ class ExamsRepository extends BaseRepository{
         foreach( $skills as $skill ){
             if( $skill == 0 ){ continue ; }
             $exam->skills()->create([
-                'skill_id' => $skill 
+                'skill_id' => $skill
             ]) ;
         }
 
@@ -79,33 +79,34 @@ class ExamsRepository extends BaseRepository{
 
     }
 
-    public function getExamQuestionsObject( $exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = false  ){
-                    
+    public function getExamQuestionsObject( $exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = true  ){
+
             if( $exam->type == 'mock' || $exam->type == "challenge" ){
                 // Select This exam Questions
                 if( $exam->questions()->distinct('question_id')->count() >= $exam->questions_count || 1 == 1 ) {
                     $questions_ids = $exam->questions()->distinct('question_id')->pluck('question_id') ;
                     $questions = $this->questions->whereIn('id' , $questions_ids );
+
                     if( isset($skills) && !empty($skills) ) {
                        // $questions->whereIn('skill_id' , $skills ) ;
                     }
                     if( isset($subjects ) && !empty($subjects ) ) {
                        // $questions->whereIn('subject_id' , $subjects  ) ;
                     }
-                    
+
                     return $questions->with('itrue')->orderBy('subject_id' , 'desc')->orderBy('attachment_id' , 'DESC')->limit($count) ;
-                    
+
                 }
             }
 
 
-        
+
         if( empty($skills) ){
             $skills[] = $exam->skills()->get()->pluck('skill_id')->toArray() ;
         }
-     
+
         $oldExams = DB::table('exams_answers')->where('student_id' , auth()->user()->id )->pluck('question_id') ;
-        
+
         if( isset($skills) && !empty($skills) ) {
             $all_ids = [] ; $perSkill = floor( $count / count($skills) ) ; $moreThan = 0 ;
             if( $count <> ( $perSkill * count($skills) ) ){ $moreThan = $count - ($perSkill * count($skills)) ; }
@@ -113,7 +114,7 @@ class ExamsRepository extends BaseRepository{
             $skills = array_filter($skills, function($item){
                 return !empty($item);
             });
-          
+
             foreach( $skills as $kx => $skill ){
 
                 $questions = $this->questions->where('status' , 1)->where('skill_id' , $skill) ;
@@ -131,7 +132,7 @@ class ExamsRepository extends BaseRepository{
                 }
 
                 if( $repeat != false ) {
-                  //  $questions->whereIn('id' , $oldExams) ;
+                    $questions->whereIn('id' , $oldExams) ;
                 }
 
                 if( $skill == end($skills) ){
@@ -145,42 +146,42 @@ class ExamsRepository extends BaseRepository{
                 foreach($skill_ids as $skid){
                     $all_ids [] = $skid ;
                 }
-    
+
                 unset($questions) ;
 
             }
 
-    
+
         }
-        
+
         return $this->questions->whereIn('id' , $all_ids)->limit( $count )->orderBy('skill_id')->orderBy('attachment_id' , 'DESC')->with('itrue') ; //->distinct();
-        
+
     }
 
     public function getExamQuestions( $exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = false  ){
-        
+
         return $this->getExamQuestionsObject( $exam , $skills , $subjects , $count , $type , $old , $repeat )->pluck('id')  ;
-        
+
     }
 
     protected function createExamQuestions( $exam , $subjects ){
-        
+
         $questionsList = $this->getExamQuestions($exam , $subjects ) ;
 
         if( !empty($questionsList) ){
               foreach( $questionsList as $question ){
                   if( $question == 0 ){ continue ; }
                   $exam->questions()->create([
-                      'question_id' => $question 
+                      'question_id' => $question
                   ]) ;
               }
         }
 
         return $exam ;
-        
-    } 
-    
 
-    
+    }
+
+
+
 
 }
