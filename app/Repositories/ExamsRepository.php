@@ -79,7 +79,7 @@ class ExamsRepository extends BaseRepository{
 
     }
 
-    public function getExamQuestionsObject( $exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = true  ){
+    public function getExamQuestionsObject( $id,$exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = true  ){
 
 
             if( $exam->type == 'mock' || $exam->type == "challenge" ){
@@ -105,7 +105,9 @@ class ExamsRepository extends BaseRepository{
             $skills[] = $exam->skills()->get()->pluck('skill_id')->toArray() ;
         }
 
-        $oldExams = DB::table('exams_answers')->where('student_id' , auth()->user()->id )->pluck('question_id') ;
+        $oldExams = DB::table('exams_answers')
+            ->where('exam_id',$id)
+            ->where('student_id' , auth()->user()->id )->pluck('question_id') ;
 
         if( isset($skills) && !empty($skills) ) {
             $all_ids = [] ; $perSkill = floor( $count / count($skills) ) ; $moreThan = 0 ;
@@ -131,8 +133,8 @@ class ExamsRepository extends BaseRepository{
                     $questions->whereNotin('id' , $oldExams) ;
                 }
 
-                if( $repeat ) {
-                    if ($oldExams){
+                if( $repeat !== false ) {
+                    if (count($oldExams)> 0){
                         $questions->whereIn('id' , $oldExams) ;
                     }
 

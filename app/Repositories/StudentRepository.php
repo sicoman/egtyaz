@@ -115,7 +115,7 @@ class StudentRepository extends BaseRepository
         }
 
 
-        $questions = $this->exams->getExamQuestionsObject($exam, $skills, $subjects, $exam->questions_count)
+        $questions = $this->exams->getExamQuestionsObject($id,$exam, $skills, $subjects, $exam->questions_count)
             ->with('answers')->with('attachment')->get();
 
         return ['exam' => $exam, 'questions' => $questions, 'subjects' => $subjects, 'skills' => $skills];
