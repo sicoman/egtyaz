@@ -52,6 +52,7 @@
 
   @section('custom_javascript')
 
+
     <script type="text/javascript">
 
         var Xm       = {!! json_encode( $questions ) !!} ;

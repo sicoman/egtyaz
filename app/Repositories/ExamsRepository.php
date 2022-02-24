@@ -81,6 +81,7 @@ class ExamsRepository extends BaseRepository{
 
     public function getExamQuestionsObject( $exam , $skills = [] , $subjects = [] , $count = 0 , $type  = 'random' , $old = false , $repeat = true  ){
 
+
             if( $exam->type == 'mock' || $exam->type == "challenge" ){
                 // Select This exam Questions
                 if( $exam->questions()->distinct('question_id')->count() >= $exam->questions_count || 1 == 1 ) {
@@ -98,7 +99,6 @@ class ExamsRepository extends BaseRepository{
 
                 }
             }
-
 
 
         if( empty($skills) ){
@@ -131,8 +131,11 @@ class ExamsRepository extends BaseRepository{
                     $questions->whereNotin('id' , $oldExams) ;
                 }
 
-                if( $repeat != false ) {
-                    $questions->whereIn('id' , $oldExams) ;
+                if( $repeat ) {
+                    if ($oldExams){
+                        $questions->whereIn('id' , $oldExams) ;
+                    }
+
                 }
 
                 if( $skill == end($skills) ){

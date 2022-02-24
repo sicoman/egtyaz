@@ -98,6 +98,7 @@ class StudentRepository extends BaseRepository
     public function getExam($id, $limit = 0)
     {
 
+
         $exam = $this->exams->model->where('id', $id)->with('subjects')->with('skills')->with('Answers')->first();
 
         if (!isset($exam->id)) {
