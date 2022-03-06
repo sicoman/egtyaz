@@ -1,8 +1,8 @@
 
-@extends('layouts.app') 
+@extends('layouts.app')
 @section('Content')
-	
- <div class="askTeacher support minHeight600"> 
+
+ <div class="askTeacher support minHeight600">
 
     <div class="container">
     <br />
@@ -19,6 +19,9 @@
     				<h2 class="title">مرحباً بك </h2>
     				<div class="desc">
                             {{ $welcome ?? 'error' }}
+                    </div>
+    				<div class="desc">
+						966558260430+
                     </div>
     				<a href="#" data-toggle="modal" data-target="#modalShare" class="flaticon-share icon"></a>
     			</div>
@@ -41,9 +44,9 @@
 	    				</div>
 	    			</div>
 	    			<button type="submit" class="btnForm">ارسل الآن</button>
-	    			
+
 	    		</form>
         </div>
-        
-</div>  	   
+
+</div>
 @stop

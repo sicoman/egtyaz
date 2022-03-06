@@ -30,28 +30,31 @@
 					جميع الحقوق محفوظة لمنصة اجتياز التعليمية
 					</p>
 				</div>
-	
+
 	    	</div>
 	    </footer>
-	    
+
     </div>
-    
+
     <div id="video" class="modal fade order-box" role="dialog">
           <div class="modal-dialog">
-                        
+
             <div class="modal-content">
-    
+
                 <div class="modal-body">
-    
+
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WKKyvZHWjrc" frameborder="0" allowfullscreen=""></iframe>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 
-    
-   
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<a href="https://wa.link/qejili" class="float" target="_blank">
+			<i class="fa fa-whatsapp my-float"></i>
+		</a>
+
     <script src="{{ asset('/frontend/js/jquery-1.11.2.min.js') }}"></script>
     <script src=" {{ asset('/frontend/js/jquery.bxslider.min.js') }}"></script>
     <script src=" {{ asset('/frontend/js/jquery-ui.js') }}"></script>
@@ -111,8 +114,26 @@
 			background: none;
 			border-radius: 5px;
 		}
+		.float{
+			position:fixed;
+			width:60px;
+			height:60px;
+			bottom:40px;
+			right:40px;
+			background-color:#25d366;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			font-size:30px;
+			box-shadow: 2px 2px 3px #999;
+			z-index:100;
+		}
+
+		.my-float{
+			margin-top:16px;
+		}
 	</style>
-    
+
 </body>
 
 </html>
