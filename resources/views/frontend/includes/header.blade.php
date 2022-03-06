@@ -1,7 +1,11 @@
     @include('frontend.includes.head')
     <body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQJ2X6D"
+					  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	<div class="menuMobile">
-		
+
 		<div class="BgClose"></div>
 		<div class="menuContent">
 			<div class="headMenu">
@@ -20,7 +24,7 @@
     <header class="header">
     	<div class="topBar">
     		<div class="container">
-    			@if(!Auth::guard('web')->check()) 
+    			@if(!Auth::guard('web')->check())
 					<a href="{{route('register')}}">تسجيل جديد</a>
 					<a href="{{route('login')}}">تسجيل الدخول</a>
 				@else

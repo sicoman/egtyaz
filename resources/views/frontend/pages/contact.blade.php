@@ -18,10 +18,10 @@
     			<div class="details">
     				<h2 class="title">مرحباً بك </h2>
     				<div class="desc">
-                            {{ $welcome ?? 'error' }}
+{{--                            {{ $welcome ?? 'error' }}--}}
                     </div>
     				<div class="desc">
-						966558260430+
+						966558260430+ للتواصل معنا :
                     </div>
     				<a href="#" data-toggle="modal" data-target="#modalShare" class="flaticon-share icon"></a>
     			</div>
