@@ -102,6 +102,7 @@ Route::group(['middleware' => ['web', 'auth:web'], 'prefix' => 'cp'], function (
     Route::group(['middleware' => 'App\Http\Middleware\PackageAccess:exam'], function () {
         Route::get('exams/free', 'Frontend\DashboardController@Exams')->name('exams');
         Route::get('exams/mock', 'Frontend\DashboardController@Mocks')->name('mocks');
+        Route::get('exams/subjects/{id}', 'Frontend\DashboardController@examsSubjects')->name('examsSubjects');
         Route::get('exam', 'Frontend\DashboardController@freeExam')->name('exam');
         Route::post('exam', 'Frontend\DashboardController@makeExam')->name('Makeexam');
         Route::get('exam/results/{exam}', 'Frontend\DashboardController@ExamResult')->name('ExamResult');

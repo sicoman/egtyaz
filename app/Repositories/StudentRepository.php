@@ -2,27 +2,28 @@
 
 namespace App\Repositories;
 
-use App\Repositories\BaseRepository;
+use DB;
 
-use Illuminate\Container\Container as Application;
+use Auth;
 
-use App\Repositories\PostsRepository as Posts;
+use Mail;
 
-use App\Repositories\ExamsRepository as Exams;
-
-use App\Services\TaxonomyService as Taxonomy;
+use View;
 
 use App\Questions;
 
 use App\Models\examAnswers;
 
-use View;
+use App\Models\Exams as Exam;
 
-use Mail;
+use App\Repositories\BaseRepository;
 
-use Auth;
+use App\Services\TaxonomyService as Taxonomy;
 
-use DB;
+use App\Repositories\ExamsRepository as Exams;
+
+use App\Repositories\PostsRepository as Posts;
+use Illuminate\Container\Container as Application;
 
 /**
  * Interface ChallengeRepositoryRepository.
@@ -320,6 +321,29 @@ class StudentRepository extends BaseRepository
 
         return $return;
 
+    }
+
+
+
+
+
+
+    
+
+    public function getExamsBySubjects($id , $student_id = null)
+    {
+        $exam = Exam::whereHas('Subjects', function ($query) use($id) {
+            if ($id == 2){ 
+                $query->whereIn('subject_id' , ['23', '24']);
+            }else{ 
+                $query->where('subject_id', $id);
+            }
+        });
+        // if ($student_id) {
+        //     $exam = $exam->where('student_id', $student_id);
+        // }
+        return $exam->orderBy('id', 'DESC')->paginate(10);
+  
     }
 
 }

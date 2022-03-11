@@ -68,10 +68,10 @@ class FrontEndRepository extends BaseRepository
 
         $options = $this->getSetting('homepage') ;
 
-        $data['first_slider'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['first_slider']) )->select(['title' , 'photo' , 'description' ])->get() ;
-        $data['second_slider'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['second_slider']) )->select(['title' , 'photo' , 'description' , 'file'])->get() ;
-        $data['six_pages'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['six_pages']) )->select(['title' , 'photo' , 'description'])->get() ;
-        $data['what_we_produce'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['what_we_produce']) )->select(['id' , 'description' , 'title' , 'photo'])->get() ;
+        // $data['first_slider'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['first_slider']) )->select(['title' , 'photo' , 'description' ])->get() ;
+        // $data['second_slider'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['second_slider']) )->select(['title' , 'photo' , 'description' , 'file'])->get() ;
+        // $data['six_pages'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['six_pages']) )->select(['title' , 'photo' , 'description'])->get() ;
+        // $data['what_we_produce'] = $this->posts->where('type' , 'pages')->where('status' , 1)->whereIn( 'id' , (array) json_decode($options['what_we_produce']) )->select(['id' , 'description' , 'title' , 'photo'])->get() ;
 
         $data['counts']['questions'] = $options['question_bank_count'] ;
         $data['counts']['forms'] = $options['forms_count'] ;
