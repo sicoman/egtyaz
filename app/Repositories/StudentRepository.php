@@ -2,29 +2,36 @@
 
 namespace App\Repositories;
 
+
 use App\Repositories\BaseRepository;
 
 use App\Models\Exams as Exam;
 
 use Illuminate\Container\Container as Application;
 
-use App\Repositories\PostsRepository as Posts;
+use DB;
 
-use App\Repositories\ExamsRepository as Exams;
 
-use App\Services\TaxonomyService as Taxonomy;
+use Auth;
+
+use Mail;
+
+use View;
 
 use App\Questions;
 
 use App\Models\examAnswers;
 
-use View;
+use App\Models\Exams as Exam;
 
-use Mail;
+use App\Repositories\BaseRepository;
 
-use Auth;
+use App\Services\TaxonomyService as Taxonomy;
 
-use DB;
+use App\Repositories\ExamsRepository as Exams;
+
+use App\Repositories\PostsRepository as Posts;
+use Illuminate\Container\Container as Application;
 
 /**
  * Interface ChallengeRepositoryRepository.
@@ -324,7 +331,7 @@ class StudentRepository extends BaseRepository
 
     }
 
- 
+
     
 
     public function getExamsBySubjects($id , $student_id = null)
@@ -342,4 +349,5 @@ class StudentRepository extends BaseRepository
         return $exam->orderBy('id', 'DESC')->paginate(10);
   
     }
+
 }
