@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Repositories\BaseRepository;
 
+use App\Models\Exams as Exam;
+
 use Illuminate\Container\Container as Application;
 
 use App\Repositories\PostsRepository as Posts;
@@ -322,4 +324,22 @@ class StudentRepository extends BaseRepository
 
     }
 
+ 
+    
+
+    public function getExamsBySubjects($id , $student_id = null)
+    {
+        $exam = Exam::whereHas('Subjects', function ($query) use($id) {
+            if ($id == 2){ 
+                $query->whereIn('subject_id' , ['23', '24']);
+            }else{ 
+                $query->where('subject_id', $id);
+            }
+        });
+        // if ($student_id) {
+        //     $exam = $exam->where('student_id', $student_id);
+        // }
+        return $exam->orderBy('id', 'DESC')->paginate(10);
+  
+    }
 }
