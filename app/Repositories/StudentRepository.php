@@ -2,7 +2,15 @@
 
 namespace App\Repositories;
 
+
+use App\Repositories\BaseRepository;
+
+use App\Models\Exams as Exam;
+
+use Illuminate\Container\Container as Application;
+
 use DB;
+
 
 use Auth;
 
@@ -322,10 +330,6 @@ class StudentRepository extends BaseRepository
         return $return;
 
     }
-
-
-
-
 
 
     

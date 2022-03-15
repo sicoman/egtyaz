@@ -36,7 +36,9 @@
 					</form>
 	    		</div>
 	    		<h2 class="titleUser">مرحباً بك: {{$CURRENT_USER->name}}</h2>
-	    		<span class="desc">الصف ال{{$stage->name}}</span>
+				@if (isset($stage)) 
+	    			<span class="desc">الصف ال{{$stage->name}}</span>
+				@endif
 	    	</div>
 
 	    </div>

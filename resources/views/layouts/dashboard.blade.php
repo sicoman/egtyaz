@@ -31,17 +31,23 @@
 				<li><a href="{{ route('exam' ) }}">اختبار تجريبى جديد </a></li>
 				<li><a href="{{ route('exams') }}">انجازاتى </a></li>
 				</ul>
-			</li>
-			<li><a href="javascript:;"class="@if( Route::is('subjects*') ) active @endif"><i class="iconColor3 flaticon-idea-3"></i>اختبار القدرات </a>
+			</li> 
+			<li><a href="javascript:;"class="@if( Route::is('exSubjects*') ) active @endif"><i class="iconColor3 flaticon-idea-3"></i>اختبار القدرات </a>
 				<ul> 
-					<li><a href="{{ route('examsSubjects', ['id' => '23']) }}">كمي </a></li>
-					<li><a href="{{ route('examsSubjects', ['id' => '24']) }}">لفظي </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '23']) }}">كمي </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '24']) }}">لفظي </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '2']) }}">لفظي وكمي </a></li>
+					{{-- <li><a href="{{ route('examsSubjects', ['id' => 'free']) }}">كثير التكرار </a></li>  --}}
+				</ul>
+			</li>
+	<li><a href="{{ route('examsSubjects', ['id' => '24']) }}">لفظي </a></li>
 					<li><a href="{{ route('examsSubjects', ['id' => '2']) }}">لفظي وكمي </a></li>
 					{{-- <li><a href="{{ route('examsSubjects', ['id' => 'free']) }}">كثير التكرار </a></li>  --}}
 				</ul>
 			</li>
 
 			{{-- <li><a href="{{ route('mocks' ) }}"><i class="iconColor3 flaticon-idea-3"></i>اختبار القدرات</a></li> --}}
+
 			<li><a href="{{ route('start') }}"><i class="iconColor4 flaticon-education"></i>التأسيس</a></li>
 			<li><a href="{{ route('challenges') }}"><i class="iconColor5 flaticon-discussion"></i>المسابقات</a></li>
 			<li><a href="{{ route('courses') }}"><i class="iconColor6 flaticon-online-education"></i>الدورات المتقدمة</a></li>
