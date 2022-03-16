@@ -463,12 +463,5 @@ class DashboardController extends FrontendController
         $data = $this->Stu->getExamsBySubjects($id , $this->getUser()->id) ;
         return $this->view('frontend.dashboard.exams.list' , ['list' => $data ] ) ; 
     }
-
-    public function examsSubjects($id){
-        parent::shareUser();
-        $data = $this->Stu->getExamsBySubjects($id , $this->getUser()->id) ;
-        return $this->view('frontend.dashboard.exams.list' , ['list' => $data ] ) ; 
-    }
-
-
+ 
 }
