@@ -104,8 +104,7 @@ Route::group(['middleware' => ['web', 'auth:web'], 'prefix' => 'cp'], function (
         Route::get('exams/mock', 'Frontend\DashboardController@Mocks')->name('mocks');
 
         Route::get('exams/subjects/{id}', 'Frontend\DashboardController@examsSubjects')->name('exSubjects');
-
-        Route::get('exams/subjects/{id}', 'Frontend\DashboardController@examsSubjects')->name('examsSubjects');
+ 
 
         Route::get('exam', 'Frontend\DashboardController@freeExam')->name('exam');
         Route::post('exam', 'Frontend\DashboardController@makeExam')->name('Makeexam');
