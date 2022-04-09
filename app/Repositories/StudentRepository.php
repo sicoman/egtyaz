@@ -334,7 +334,9 @@ class StudentRepository extends BaseRepository
         $exam = Exam::whereHas('Subjects', function ($query) use($id) {
             if ($id == 2){ 
                 $query->whereIn('subject_id' , ['23', '24']);
-            }else{ 
+            } else if ($id == 3){ 
+                 $query->whereIn('subject_id' , ['67', '68', '69', '70']);
+            } else{ 
                 $query->where('subject_id', $id);
             }
         });

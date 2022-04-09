@@ -41,6 +41,16 @@
 				</ul>
 			</li>
 
+			<li><a href="javascript:;"class="@if( Route::is('subjects*') ) active @endif"><i class="iconColor3 flaticon-idea-2"></i> التحصيلي </a>
+				<ul> 
+					<li><a href="{{ route('exSubjects', ['id' => '67']) }}">الرياضيات </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '69']) }}">الكيمياء </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '68']) }}"> الفيزياء </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '70']) }}"> اﻷحياء </a></li>
+					<li><a href="{{ route('exSubjects', ['id' => '3']) }}"> التجميعات </a></li>
+				</ul>
+			</li>
+
 			{{-- <li><a href="{{ route('mocks' ) }}"><i class="iconColor3 flaticon-idea-3"></i>اختبار القدرات</a></li> --}}
 
 			<li><a href="{{ route('start') }}"><i class="iconColor4 flaticon-education"></i>التأسيس</a></li>
